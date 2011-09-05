@@ -9,10 +9,11 @@ RenderThread::RenderThread( QObject* ptrParent ) : QThread( ptrParent )
 
    particleManager = new ParticleManager;
 
-   Particle* testParticle = new Particle(QPointF(50,50));
-   testParticle->setVelocity(QPointF(200,-200));
+   Emitter *testEmitter = new Emitter(QPointF(100,0),particleManager);
+   particleManager->addParticle(testEmitter);
 
-   particleManager->append(testParticle);
+   particleManager->addParticle(QPointF(50,50),1,QPointF(200,-200));
+
 
    p_ptrScreen = SDL_SetVideoMode( 640, 480, 0, 0 );
    //TODO: check if file exists

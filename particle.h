@@ -9,7 +9,8 @@
 class Particle : public QPointF
 {
 public:
-    explicit Particle(const QPointF &location);
+    explicit Particle(const QPointF &location = QPointF(0,0), const double &mass = 1, const QPointF &velocity = QPointF(0,0));
+
 
     virtual bool tick();
 
@@ -21,6 +22,9 @@ public:
 
     void setMass(const double &mass);
     double mass() const;
+
+    void setLocation(const QPointF &location);
+    QPointF location() const;
 
     void setVelocity(const QPointF &velocity);
     QPointF velocity() const;

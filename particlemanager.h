@@ -10,7 +10,8 @@ public:
     ParticleManager();
     ~ParticleManager();
     void addParticle(Particle *particle);
-    void deleteAt(int i);
+    void addParticle(const QPointF &location = QPointF(0,0),  const double &mass = 1, const QPointF &velocity = QPointF(0,0));
+    void deleteAt(const int &i);
     void updateParticles();
 };
 

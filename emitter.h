@@ -4,17 +4,19 @@
 #include <QPointF>
 #include <QList>
 #include <particle.h>
+#include <particlemanager.h>
 #include <helper.h>
 
 class Emitter : public Particle
 {
 public:
-    explicit Emitter(const QPointF &location, QList<Particle*>& particles);
+    explicit Emitter(const QPointF &location, ParticleManager *manager);
 
     virtual bool tick();
 
 private:
     int particleCreateCount();
+    ParticleManager *particleManager;
 
     Distribution velocityDist;
     double avgVelocity;
